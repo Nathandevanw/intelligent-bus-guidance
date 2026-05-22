@@ -11,6 +11,6 @@ public class NavigationGPS {
     }
 
     public void provideSafeRoute() {
-        System.out.println("GPS provides safe route after hazard detection.");
+        System.out.println("GPS provide safe route after hazard detection.");
     }
 }
