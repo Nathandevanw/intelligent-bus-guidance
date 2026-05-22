@@ -1,0 +1,20 @@
+# Target Build Binaries
+target/
+*.class
+
+# IntelliJ IDEA Configuration Profiles
+.idea/
+*.iml
+*.iws
+
+# Eclipse Configuration Items
+.settings/
+.project
+.classpath
+
+# Visual Studio Code Storage Layouts
+.vscode/
+
+# Application Specific Local Storage Outputs
+data/*_test.txt
+*.log

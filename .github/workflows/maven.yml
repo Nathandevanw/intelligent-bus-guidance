@@ -1,0 +1,25 @@
+name: Java CI/CD Pipeline Build Verification
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download source repository codes
+      uses: actions/checkout@v3
+
+    - name: Initialize Java JDK Runtime Environment
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Compile codebase and execute automated verification tests
+      run: mvn clean test

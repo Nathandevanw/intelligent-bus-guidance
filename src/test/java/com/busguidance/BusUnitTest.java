@@ -1,4 +1,5 @@
-package test.java.com.busguidance;
+
+package com.busguidance;
 
 public class BusUnitTest {
     

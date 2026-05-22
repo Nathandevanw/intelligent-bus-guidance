@@ -1,3 +1,5 @@
+package com.busguidance;
+
 public class Tablet {
 
     private NavigationGPS navigationGPS;
