@@ -3,6 +3,6 @@ package com.busguidance;
 public class Administrator {
 
     public void updateTrafficInformation() {
-        System.out.println("Administrator updates traffic information.");
+        System.out.println("Administrator updates traffic information");
     }
 }
