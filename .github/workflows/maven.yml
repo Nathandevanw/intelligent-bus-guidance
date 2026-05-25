@@ -17,7 +17,7 @@ jobs:
     - name: Initialize Java JDK Runtime Environment
       uses: actions/setup-java@v4
       with:
-        java-version: '21'
+        java-version: '20'
         distribution: 'adopt'
         cache: maven
     
