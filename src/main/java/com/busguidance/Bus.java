@@ -1,0 +1,16 @@
+package com.busguidance;
+
+public class Bus {
+    private String busID;
+    private int capacity;
+    private double fuelLevel;
+    private String fuelType; // Diesel, Hybrid, Electricity
+
+    public Bus(String busID, int capacity, double fuelLevel, String fuelType) {
+        this.busID = busID;
+        this.capacity = capacity;
+        this.fuelLevel = fuelLevel;
+        this.fuelType = fuelType;
+    }
+}
+

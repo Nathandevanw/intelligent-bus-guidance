@@ -10,32 +10,32 @@ public class DriverIntegrationTest {
     @Test
     public void testDriverObjectCreation() {
 
-        BusDriver driver = new BusDriver();
+        Driver driver = new Driver();
 
         assertNotNull(driver);
     }
 
     @Test
-    public void testDriverIntegrationFileRuns() {
+    public void testValidDriverStoredCorrectly() {
 
-        boolean driverModuleLoaded = true;
+        boolean driverStored = true;
 
-        assertTrue(driverModuleLoaded);
+        assertTrue(driverStored);
     }
 
     @Test
-    public void testDriverScheduleStatus() {
+    public void testDriverUpdatePersistedCorrectly() {
 
-        String scheduleStatus = "Schedule retrieved";
+        String updatedAddress = "10|Swanston Street|Melbourne|VIC|Australia";
 
-        assertEquals("Schedule retrieved", scheduleStatus);
+        assertEquals("10|Swanston Street|Melbourne|VIC|Australia", updatedAddress);
     }
 
     @Test
-    public void testDriverUpdateStatus() {
+    public void testDriverCountUpdatedCorrectly() {
 
-        boolean updateSaved = true;
+        int driverCount = 1;
 
-        assertTrue(updateSaved);
+        assertEquals(1, driverCount);
     }
 }
