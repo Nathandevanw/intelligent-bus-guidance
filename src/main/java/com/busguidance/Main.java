@@ -10,5 +10,9 @@ public class Main {
         app.login("passenger01", "password123");
         //driver.viewSchedule();
         //driver.requestUpdatedSchedule();
+
+        BusRepository busRepository = new BusRepository();
+        busRepository.Retrieve("87654321");
+
     }
 }
