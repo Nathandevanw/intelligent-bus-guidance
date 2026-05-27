@@ -1,0 +1,4 @@
+40362951AB, Nathan Van, 4, Heavy, 12|Pier St|Altona|VIC|AUS, 29-02-2000
+50473862CD, Sarah Smith, 12, Public Transport, 10|High St|Geelong|VIC|AUS, 15-05-1985
+60584973EF, Marcus Chen, 8, Medium, 99|Bourke St|Melbourne|VIC|AUS, 20-10-1992
+70695084GH, Priya Patel, 2, Light, 42|Queen St|Brisbane|QLD|AUS, 01-01-2001
