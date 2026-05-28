@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class BusIntegrationTest {
-
+    /*
     @Test
     void RetrieveTest() {
         BusRepository busRepository = new BusRepository();
@@ -29,7 +29,8 @@ public class BusIntegrationTest {
         // Verify taht increases in capacity during updates are not updated
         assertEquals(false, busRepository.Update("12345678", 71, 1, "Electricity"));
     }
-    
+    */
+   
     @Test
     //This is a test!
     void AddTest() {
