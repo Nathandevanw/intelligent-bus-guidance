@@ -28,7 +28,17 @@ public class BusIntegrationTest {
         assertEquals(expectedBus.getBusID(), (busRepository.Retrieve("12345678")).getBusID());
     }
 
+    @Test
+    void UpdateTest() {
+        BusRepository busRepository = new BusRepository();
 
+        // Verify that correct information are updated correctly
+        assertEquals(true, busRepository.Update("12345678", 50, 100, "Hybrid"));
 
+        // Verify taht increases in capacity during updates are not updated
+        assertEquals(false, busRepository.Update("12345678", 71, 100, "Electricity"));
+    }
+
+    
 }
  
