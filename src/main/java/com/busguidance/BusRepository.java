@@ -45,7 +45,7 @@ public class BusRepository {
                         System.out.println("Error: Only change capacity to decrease");
                         return false;
                     }
-                    wasIdFound += 1;    // Keeps track of the fact that the ID was found the repository and therefore updated.
+                    wasIdFound += 1;    // Keeps track of the fact that the ID was found the database and therefore updated.
                 }
                 // If the busID does not match, it does nto change the values.
                 else {
@@ -65,9 +65,9 @@ public class BusRepository {
                 writer.write(inputStorage.get(i));
                 writer.write("\n");
             }
+            // Only toggles the update as successful if the ID was found the changed in the database.
             if (wasIdFound == 1) {
                 System.out.println("The update was successful.");
-                System.out.println(inputStorage);
                 return true;
             } 
             else {
@@ -95,7 +95,7 @@ public class BusRepository {
 
                 // Checks if the first argument is the busID required.
                 if (entry[0].equals(busId)) {
-                    System.out.println("Record " + busId + " is found!");
+                    System.out.println("Record " + busId + " is found.");
                     Bus bus = new Bus(entry[0], Integer.parseInt(entry[1]), Double.parseDouble(entry[2]), entry[3]);
                     return bus;
                 }
@@ -107,6 +107,7 @@ public class BusRepository {
             return null;
         }
         
+        System.out.println("Error: Record " + busId + "is not found.");
         return null;
     }
 }
