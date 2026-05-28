@@ -22,11 +22,13 @@ public class BusIntegrationTest {
         Bus expectedBus = new Bus("12345678", 70, 100, "Hybrid");
 
         // Check that random buses not in the database are not retrieved
-        assertEquals(null, busRepository.Retrieve("87654321"));
+        assertNull(busRepository.Retrieve("87654321"));
 
         // Check that the correct Bus is retrieved
         assertEquals(expectedBus.getBusID(), (busRepository.Retrieve("12345678")).getBusID());
     }
+
+
 
 }
  
