@@ -11,8 +11,5 @@ public class Main {
         //driver.viewSchedule();
         //driver.requestUpdatedSchedule();
 
-        BusRepository busRepository = new BusRepository();
-        busRepository.Retrieve("87654321");
-
     }
 }

@@ -5,6 +5,9 @@ public class Bus {
     private int capacity;
     private double fuelLevel;
     private String fuelType; // Diesel, Hybrid, Electricity
+    private int age;
+    private int expYears; 
+    private String license;
 
     // Define the constructor for the Bus class.
     public Bus(String busID, int capacity, double fuelLevel, String fuelType) {
@@ -12,6 +15,9 @@ public class Bus {
         this.capacity = capacity;
         this.fuelLevel = fuelLevel;
         this.fuelType = fuelType;
+        this.age = 30;
+        this.expYears = 5;
+        this.license = "PublicTransport";
     }
 
     // Define the getter functions for the Bus class.
@@ -31,6 +37,18 @@ public class Bus {
         return this.fuelType;
     }
 
+    public int getAge() {
+        return this.age;
+    }
+
+    public int getExpYears() {
+        return this.expYears;
+    }
+
+    public String getLicense() {
+        return this.license;
+    }
+
     // Define the setter functions for the Bus Class
     public void setBusID(String busID) {
         this.busID = busID;
@@ -46,6 +64,18 @@ public class Bus {
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setExpYears(int expYears) {
+        this.expYears = expYears;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
     }
 
 }
