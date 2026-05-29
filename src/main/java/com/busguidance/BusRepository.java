@@ -86,7 +86,7 @@ public class BusRepository {
         // Append the valid Bus details to the database
         try (FileWriter writer = new FileWriter("buses.txt", true)) {
             String newLine = bus.getBusID() + ", " + String.valueOf(bus.getCapacity()) + ", " + String.valueOf(bus.getFuelLevel()) + ", " + String.valueOf(bus.getFuelType());
-            writer.write("\n" + newLine);
+            writer.write(newLine + "\n");
             System.out.println("Bus " + bus.getBusID() + " is added.");
             return true;
         } 
