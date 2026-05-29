@@ -188,8 +188,9 @@ public class BusRepository {
         return null;
     }
 
-    // Only used for the unit testing, returns it to a databse with only the first entry.
+    // Only used for the unit testing, returns a databse with only the first entry.
     public void Reset() {
+        // Opens the database and deletes everything before rewriting the first entry
         try (FileWriter writer = new FileWriter("buses.txt")) {
             writer.write("12345678, 70, 1.0, Hybrid\n");
         }
