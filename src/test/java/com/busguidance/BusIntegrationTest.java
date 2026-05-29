@@ -35,7 +35,7 @@ public class BusIntegrationTest {
     void AddTest() {
         Bus newBus = new Bus("87654321", 50, 1, "Electricity");
         Bus matchBus = new Bus("12345678", 70, 0.9, "Electricity");
-        Bus wrongBus = new Bus("87654321", 50, 1, "Petrol");
+        Bus wrongBus = new Bus("87654320", 50, 1, "Petrol");
         BusRepository busRepository = new BusRepository();
         
         // Verify valid buses are stored correctly.
