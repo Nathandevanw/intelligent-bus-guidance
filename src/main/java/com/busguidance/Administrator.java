@@ -6,4 +6,3 @@ public class Administrator {
         System.out.println("Administrator updates traffic information.");
     }
 }
-gfgfgfgf
