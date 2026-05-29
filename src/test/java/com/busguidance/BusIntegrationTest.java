@@ -51,5 +51,22 @@ public class BusIntegrationTest {
         busRepository.Reset();
     }
 
-}
+    @Test
+
+    void CountTest() {
+        Bus newBus = new Bus("87654321", 50, 1, "Electricity");
+        BusRepository busRepository = new BusRepository();
+        
+        // Verify record coutns are updated correctly for update function
+        busRepository.Update("12345678", 50, 1, "Hybrid");
+        assertEquals(1, busRepository.Count());
+
+        // Verify record counts are updated correctly for add function
+        busRepository.Add(newBus);
+        assertEquals(2, busRepository.Count());
+
+        // Returns the database to the way it was after finishing the Add tests
+        busRepository.Reset();
+    }
+}   
  

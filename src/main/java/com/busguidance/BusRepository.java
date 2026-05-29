@@ -1,6 +1,7 @@
 package com.busguidance;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.FileWriter;
@@ -49,7 +50,7 @@ public class BusRepository {
         }
         catch(FileNotFoundException e) {
             // Returns an error message if the file does not exist in the project.
-            System.out.println("Error: File Not found in the project");
+            System.out.println("Error: File 'buses.txt' was not found.");
             return false;
         }
 
@@ -67,7 +68,7 @@ public class BusRepository {
 
         // Check the fuel type is valid
         if (!bus.getFuelType().equals("Diesel") && !bus.getFuelType().equals("Hybrid") && !bus.getFuelType().equals("Electricity")) {
-            System.out.println("Error: Fuel type should be Diesel, Hybrid or Electricity");
+            System.out.println("Error: Fuel type should be Diesel, Hybrid or Electricity.");
             return false;
         }
         
@@ -91,7 +92,7 @@ public class BusRepository {
             return true;
         } 
         catch (IOException e) {
-            System.out.println("Error: File not found.");
+            System.out.println("Error: File 'buses.txt' was not found.");
             return false;
         }
 
@@ -132,7 +133,7 @@ public class BusRepository {
         }
         catch(FileNotFoundException e) {
             // Returns an error message if the file does not exist in the project.
-            System.out.println("Error: File Not found in the project");
+            System.out.println("Error: File 'buses.txt' was not found.");
             return false;
         }
 
@@ -180,13 +181,32 @@ public class BusRepository {
         }
         catch(FileNotFoundException e) {
             // Returns an error message if the file does not exist in the project.
-            System.out.println("File Not found in the project");
+            System.out.println("File 'buses.txt' was not found.");
             return null;
         }
         
         System.out.println("Error: Record " + busId + " is not found.");
         return null;
     }
+
+    // The Count method
+    public int Count() {
+        // Define all the variables
+        File database = new File("buses.txt");
+        int counter = 0; // Keeps track of the number of records
+        
+        // Open the database and count all the lines until the end of the file is reached
+        try (Scanner reader = new Scanner(database)) {
+            for (counter = 0; reader.hasNextLine(); counter++) {reader.nextLine();}
+            return counter;
+        }
+        // Checks if the database exists
+        catch (FileNotFoundException e) {
+            System.out.println("Error: File 'buses.txt' was not found.");
+            return -1;
+        }
+    }
+
 
     // Only used for the unit testing, returns a databse with only the first entry.
     public void Reset() {
@@ -195,7 +215,7 @@ public class BusRepository {
             writer.write("12345678, 70, 1.0, Hybrid\n");
         }
         catch (IOException e) {
-            System.out.println("Non-accounted error.");
+            System.out.println("Unaccounted error.");
         }
     }
 }
