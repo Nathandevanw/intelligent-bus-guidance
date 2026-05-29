@@ -109,7 +109,7 @@ public class BusRepository {
             // Reads all the lines of the database and saves it.
             while(reader.hasNextLine()) {
                 String line = reader.nextLine();
-                String[] entry = line.split(", ");      // Split the data using','
+                String[] entry = line.split(", ");      // Split the data using', '
 
                 // If the busID matches the parameter, it changes the values accordingly
                 if (entry[0].equals(busId)) {
