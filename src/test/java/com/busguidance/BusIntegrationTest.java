@@ -30,7 +30,6 @@ public class BusIntegrationTest {
         assertEquals(false, busRepository.Update("12345678", 71, 1, "Electricity"));
     }
    
-    /*
     @Test
     //This is a test!
     void AddTest() {
@@ -47,7 +46,10 @@ public class BusIntegrationTest {
 
         // Verify invalid buses are rejected due to invalid fuel type
         assertEquals(false, busRepository.Add(wrongBus));
+
+        // Returns the database to the way it was after finishing the Add tests
+        busRepository.Reset();
     }
-    */
+
 }
  

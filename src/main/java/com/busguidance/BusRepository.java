@@ -79,7 +79,7 @@ public class BusRepository {
 
         // Check driver license restriction for fuel type 
         if ((bus.getLicense().equals("Light") || bus.getLicense().equals("Medium")) && (bus.getFuelType().equals("Electricity") || bus.getFuelType().equals("Hybrid"))) {
-            System.out.println("Error: Only bus drivers with a heavy or public transport license can operate electric or hybrid buses");
+            System.out.println("Error: Only bus drivers with a heavy or public transport license can operate electric or hybrid buses.");
             return false;
         }
 
@@ -188,4 +188,13 @@ public class BusRepository {
         return null;
     }
 
+    // Only used for the unit testing, returns it to a databse with only the first entry.
+    public void Reset() {
+        try (FileWriter writer = new FileWriter("buses.txt")) {
+            writer.write("12345678, 70, 1.0, Hybrid\n");
+        }
+        catch (IOException e) {
+            System.out.println("Non-accounted error.");
+        }
+    }
 }
