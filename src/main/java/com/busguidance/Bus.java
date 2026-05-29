@@ -5,12 +5,21 @@ public class Bus {
     private int capacity;
     private double fuelLevel;
     private String fuelType; // Diesel, Hybrid, Electricity
+<<<<<<< HEAD
 
+=======
+    private int age;
+    private int expYears; 
+    private String license;
+
+    // Define the constructor for the Bus class.
+>>>>>>> 3d69be26834107ae6076eb9aa1a744344a8275e3
     public Bus(String busID, int capacity, double fuelLevel, String fuelType) {
         this.busID = busID;
         this.capacity = capacity;
         this.fuelLevel = fuelLevel;
         this.fuelType = fuelType;
+<<<<<<< HEAD
     }
 
     public String getBusID(){
@@ -53,6 +62,70 @@ public class Bus {
     }
     return true;
 }
+=======
+        this.age = 30;
+        this.expYears = 5;
+        this.license = "PublicTransport";
+    }
+
+    // Define the getter functions for the Bus class.
+    public String getBusID(){
+        return this.busID;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public double getFuelLevel() {
+        return this.fuelLevel;
+    }
+    
+    public String getFuelType() {
+        return this.fuelType;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public int getExpYears() {
+        return this.expYears;
+    }
+
+    public String getLicense() {
+        return this.license;
+    }
+
+    // Define the setter functions for the Bus Class
+    public void setBusID(String busID) {
+        this.busID = busID;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setFuelLevel(double fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setExpYears(int expYears) {
+        this.expYears = expYears;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+>>>>>>> 3d69be26834107ae6076eb9aa1a744344a8275e3
 
 }
 
