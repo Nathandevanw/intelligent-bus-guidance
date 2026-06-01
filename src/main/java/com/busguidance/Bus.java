@@ -5,21 +5,17 @@ public class Bus {
     private int capacity;
     private double fuelLevel;
     private String fuelType; // Diesel, Hybrid, Electricity
-<<<<<<< HEAD
 
-=======
     private int age;
     private int expYears; 
     private String license;
 
     // Define the constructor for the Bus class.
->>>>>>> 3d69be26834107ae6076eb9aa1a744344a8275e3
     public Bus(String busID, int capacity, double fuelLevel, String fuelType) {
         this.busID = busID;
         this.capacity = capacity;
         this.fuelLevel = fuelLevel;
         this.fuelType = fuelType;
-<<<<<<< HEAD
     }
 
     public String getBusID(){
@@ -62,7 +58,6 @@ public class Bus {
     }
     return true;
 }
-=======
         this.age = 30;
         this.expYears = 5;
         this.license = "PublicTransport";
@@ -125,7 +120,6 @@ public class Bus {
     public void setLicense(String license) {
         this.license = license;
     }
->>>>>>> 3d69be26834107ae6076eb9aa1a744344a8275e3
 
 }
 
