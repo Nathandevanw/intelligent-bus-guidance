@@ -8,6 +8,9 @@ private String licenseType; // Light, Medium, Heavy, PublicTransport
 private String address;
 private String birthdate;
 
+public Driver() {
+
+}
 
 public Driver(String driverID, String name, int experienceYears, String licenseType, String address, String birthdate) {
     this.driverID = driverID;
