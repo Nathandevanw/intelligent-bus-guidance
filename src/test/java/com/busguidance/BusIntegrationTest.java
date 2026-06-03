@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BusIntegrationTest {
 
+    // This tests the Retrieve method
     @Test
     void RetrieveTest() {
         BusRepository busRepository = new BusRepository();
@@ -19,6 +20,7 @@ public class BusIntegrationTest {
         assertEquals(expectedBus.getBusID(), (busRepository.Retrieve("12345678")).getBusID());
     }
 
+    // This tests the Update method
     @Test
     void UpdateTest() {
         BusRepository busRepository = new BusRepository();
@@ -30,8 +32,8 @@ public class BusIntegrationTest {
         assertEquals(false, busRepository.Update("12345678", 71, 1, "Electricity"));
     }
    
+    // This tests the Add method
     @Test
-    //This is a test!
     void AddTest() {
         Bus newBus = new Bus("87654321", 50, 1, "Electricity");
         Bus matchBus = new Bus("12345678", 70, 0.9, "Electricity");
@@ -51,8 +53,8 @@ public class BusIntegrationTest {
         busRepository.Reset();
     }
 
+    // This tests the Count method
     @Test
-
     void CountTest() {
         Bus newBus = new Bus("87654321", 50, 1, "Electricity");
         BusRepository busRepository = new BusRepository();
