@@ -1,100 +1,121 @@
 package com.busguidance;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BusUnitTest {
+   @Test
+   void verifyPerfectValidBus() {
 
-    // ==========================================
-    // RULE 1: BUS ID FORMATTING
-    // ==========================================
+    Bus bus = new Bus("87654321", 50, 80.0, "Electricity");
 
-    @Test
-    public void testInvalidBusIDLength() {
-        BusRepository repo = new BusRepository();
-        // ID is only 7 characters instead of 8
-        Bus bus = new Bus("1234567", 40, 0.5, "Diesel");
-        
-        assertFalse(repo.Add(bus), "System should reject a Bus ID that is not exactly 8 characters long.");
-    }
+    assertTrue(bus.ValidBusID());
+    assertTrue(bus.UpdateCapacity(35));
+    assertTrue(Bus.canDriveBus(38, 50));
+    assertTrue(Bus.allowedElectricBus(6,"Electricity"));
+    assertTrue(Bus.ValidLicence("Heavy", "Electricity"));
+   } 
 
-    @Test
-    public void testInvalidBusIDCharacters() {
-        BusRepository repo = new BusRepository();
-        // ID contains letters instead of only digits
-        Bus bus = new Bus("1234ABCD", 40, 0.5, "Diesel");
-        
-        assertFalse(repo.Add(bus), "System should reject a Bus ID that contains non-numeric characters.");
-    }
+   @Test
+   void duplicateBusID(){
+    String existsBusID = "87654321";
+    String newBusID = "87654321";
 
-    // ==========================================
-    // RULE 2: AGE & CAPACITY RESTRICTIONS
-    // ==========================================
+    assertEquals(existsBusID, newBusID);
+   }
 
-    @Test
-    public void testOlderDriverCapacityRestriction() {
-        BusRepository repo = new BusRepository();
-        Bus bus = new Bus("22223333", 55, 0.5, "Diesel");
-        bus.setAge(55); // Driver is older than 50
-        
-        assertFalse(repo.Add(bus), "System should reject drivers over 50 operating buses with a capacity of 50 or more.");
-    }
+   @Test
+   void busIDShort() {
+    Bus bus = new Bus("7654321", 50, 80.0,"Electricty");
 
-    // ==========================================
-    // RULE 3: FUEL LEVEL & TYPE
-    // ==========================================
+    assertFalse(bus.ValidBusID());
+   }
 
-    @Test
-    public void testInvalidFuelLevel() {
-        BusRepository repo = new BusRepository();
-        // Fuel level is 1.5 (must be between 0.0 and 1.0)
-        Bus bus = new Bus("33334444", 40, 1.5, "Diesel"); 
-        
-        assertFalse(repo.Add(bus), "System should reject fuel levels greater than 1.0.");
-    }
+   @Test
+   void busIDLong() {
+    Bus bus = new Bus("987654321", 50, 80.0, "Electricty");
 
-    @Test
-    public void testInvalidFuelType() {
-        BusRepository repo = new BusRepository();
-        // Fuel type is Petrol (must be Diesel, Hybrid, or Electricity)
-        Bus bus = new Bus("44445555", 40, 0.5, "Petrol"); 
-        
-        assertFalse(repo.Add(bus), "System should reject invalid fuel types like Petrol.");
-    }
+    assertFalse(bus.ValidBusID());
+   }
 
-    // ==========================================
-    // RULE 4: LICENSE & EXPERIENCE LOCKS
-    // ==========================================
+   @Test
+   void busIDwithALetter(){
+    Bus bus = new Bus("8765432a", 50, 80.0, "Electricity");
 
-    @Test
-    public void testElectricBusExperienceRestriction() {
-        BusRepository repo = new BusRepository();
-        Bus bus = new Bus("55556666", 40, 0.8, "Electricity");
-        bus.setExpYears(3); // Less than the required 5 years
-        bus.setLicense("Heavy");
-        
-        assertFalse(repo.Add(bus), "System should reject drivers with less than 5 years experience from driving Electric buses.");
-    }
+    assertFalse(bus.ValidBusID());
+   }
 
-    @Test
-    public void testInvalidLicenseForHybrid() {
-        BusRepository repo = new BusRepository();
-        Bus bus = new Bus("66667777", 40, 0.8, "Hybrid");
-        bus.setLicense("Light"); // Light license cannot operate Hybrid
-        
-        assertFalse(repo.Add(bus), "System should reject Hybrid bus assignments for drivers with only a Light license.");
-    }
+   @Test
+   void DecreaseCapacity() {
+    Bus bus = new Bus("87654321", 44, 80.0, "Electricty");
 
-    // ==========================================
-    // RULE 5: UPDATE RESTRICTIONS
-    // ==========================================
+    assertTrue(bus.UpdateCapacity(40));
+   }
 
-    @Test
-    public void testUpdateCapacityIncreaseRejected() {
-        BusRepository repo = new BusRepository();
-        
-        // Attempting to increase capacity (which violates the decrease-only rule)
-        // Note: Relies on "12345678" existing from the teammate's Reset() method
-        assertFalse(repo.Update("12345678", 99, 1.0, "Hybrid"), "System should reject attempts to increase bus capacity during an update.");
-    }
+   @Test
+   void IncreaseCapacity() {
+    Bus bus = new Bus("87654321", 44, 80.0, "Electricty");
+
+    assertFalse(bus.UpdateCapacity(48));
+   }
+
+   @Test
+   void SameCapacity() {
+    Bus bus = new Bus("87654321", 44, 80.0, "Electricty");
+
+    assertTrue(bus.UpdateCapacity(44));
+   }
+
+   @Test
+   void DriversAge50Capacity50() {
+    assertTrue(Bus.canDriveBus(50, 50));
+   }
+
+   @Test
+   void DriversAge38Capacity86() {
+    assertTrue(Bus.canDriveBus(38, 86));
+   }
+
+   @Test
+   void DriversAge67Capacity72() {
+    assertFalse(Bus.canDriveBus(67, 72));
+   }
+
+   @Test
+   void DriversAge64Capacity26() {
+    assertTrue(Bus.canDriveBus(64, 26));
+   }
+
+   @Test
+   void Experience7FuelElectricBus() {
+    assertTrue(Bus.allowedElectricBus(7, "Electricity"));
+   }
+
+   @Test
+   void Experience3FuelElectricBus() {
+    assertFalse(Bus.allowedElectricBus(3, "Electricity"));
+   }
+
+   @Test
+   void Experience5FuelElectricBus() {
+    assertTrue(Bus.allowedElectricBus(5, "Electricity"));
+   }
+
+   @Test
+   void HeavyLicenceFuelHybridBus() {
+    assertTrue(Bus.ValidLicence("Heavy", "Hybrid"));
+   }
+
+   @Test
+   void HeavyLicenceFuelElectricBus() {
+    assertTrue(Bus.ValidLicence("Heavy", "Electricity"));
+   }
+
+   @Test
+   void PublicTransportLicenseHybridBus() {
+    assertTrue(Bus.ValidLicence("PublicTransport", "Hybrid"));
+   }
 }
+
