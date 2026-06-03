@@ -10,6 +10,7 @@ public class Main {
         app.login("passenger01", "password123");
         //driver.viewSchedule();
         //driver.requestUpdatedSchedule();
+        System.out.println("Testing.");
 
     }
 }
