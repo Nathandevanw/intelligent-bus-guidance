@@ -5,6 +5,7 @@ public class Bus {
     private int capacity;
     private double fuelLevel;
     private String fuelType; // Diesel, Hybrid, Electricity
+
     private int age;
     private int expYears; 
     private String license;
@@ -20,21 +21,20 @@ public class Bus {
         this.license = "PublicTransport";
     }
 
-    // Define the getter functions for the Bus class.
     public String getBusID(){
-        return this.busID;
+        return busID;
     }
-
-    public int getCapacity() {
-        return this.capacity;
+    
+    public int getCapacity(){
+        return capacity;
     }
 
     public double getFuelLevel() {
-        return this.fuelLevel;
+        return fuelLevel;
     }
-    
-    public String getFuelType() {
-        return this.fuelType;
+
+    public String getFuelType(){
+        return fuelType;
     }
 
     public int getAge() {
@@ -42,41 +42,44 @@ public class Bus {
     }
 
     public int getExpYears() {
-        return this.expYears;
+        return expYears;
     }
 
     public String getLicense() {
-        return this.license;
+        return license;
     }
 
-    // Define the setter functions for the Bus Class
-    public void setBusID(String busID) {
-        this.busID = busID;
+
+    public boolean ValidBusID(){
+        return busID != null && busID.matches("\\d{8}");
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public boolean UpdateCapacity(int newCapacity) {
+        return newCapacity <= this.capacity;   
     }
 
-    public void setFuelLevel(double fuelLevel) {
-        this.fuelLevel = fuelLevel;
+    public static boolean canDriveBus(int driverAge, int busCapacity) {
+        return !(driverAge > 50 && busCapacity >=50);
     }
 
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
+    public static boolean allowedElectricBus(int yearsofexperience, String fuelType) {
+        if (fuelType.equalsIgnoreCase("Electricity")) {
+            return yearsofexperience >= 5;
+        }
+        return true;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public static boolean ValidLicence(String licenceType, String fuelType) {
+        if (fuelType.equalsIgnoreCase("Electricity") 
+            || fuelType.equalsIgnoreCase("Hybrid")) {
+        
+            return licenceType.equalsIgnoreCase("Heavy")
+            || licenceType.equalsIgnoreCase("PublicTransport");
+            }
+        return true;
     }
-
-    public void setExpYears(int expYears) {
-        this.expYears = expYears;
-    }
-
-    public void setLicense(String license) {
-        this.license = license;
-    }
-
+   
 }
+
+        
 
